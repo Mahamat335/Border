@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class CarShake : MonoBehaviour {
 
-    public bool isDriving = false;
+    public bool isDriving = true;
 
     public float shakeIntensity = 0.05f;
     public float shakeFrequency = 3f;
     private Vector3 initialPosition;
 
     void Start() {
-        if (isDriving) {
-            Shake();
-        }
+
     }
 
     void FixedUpdate() {
-
+        if (isDriving) {
+            Shake();
+        }
     }
     private void Shake() {
 
@@ -26,6 +26,7 @@ public class CarShake : MonoBehaviour {
 
         Vector3 targetPosition = initialPosition + new Vector3(shakeAmountX, shakeAmountY, 0f) * shakeIntensity;
         transform.localPosition = Vector3.Lerp(transform.localPosition, targetPosition, Time.fixedDeltaTime * 5f);
+
     }
 
 }
