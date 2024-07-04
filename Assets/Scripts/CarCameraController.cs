@@ -10,8 +10,8 @@ public class CarCameraController : MonoBehaviour
     private float xRotation = 0f;
     private float yRotation = 0f;
     public float crouchingSpeed = 3f;
-    private Vector3 defaultPosition = new Vector3(-1.0f, 1, 0);
-    private Vector3 crouchedPosition = new Vector3(-0.2f, 0.2f, 0.0f);
+    private Vector3 defaultPosition = new Vector3(-1.0f, 1.0f, 0.0f);
+    private Vector3 crouchedPosition = new Vector3(-0.3f, 0.3f, 0.0f);
 
 
     void Start()
@@ -39,7 +39,7 @@ public class CarCameraController : MonoBehaviour
 
         transform.localRotation = Quaternion.Euler(xRotation, yRotation + 90, 0f);
 
-        if (transform.localRotation.eulerAngles.x > 55.0f)
+        if (transform.localRotation.eulerAngles.x > 45.0f)
         {
             transform.localPosition = Vector3.Lerp(transform.localPosition, defaultPosition - crouchedPosition, Time.deltaTime * crouchingSpeed);
         }
@@ -51,6 +51,33 @@ public class CarCameraController : MonoBehaviour
 
     private void Move()
     {
-        //move
+
+
+
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+        {
+
+            yClamp = 18;
+            xClamp = 55;
+            defaultPosition = new Vector3(-1.0f, 1.0f, 0.3f);
+
+        }
+        else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+        {
+
+            yClamp = 18;
+            xClamp = 55;
+            defaultPosition = new Vector3(-1.0f, 1.0f, -0.3f);
+        }
+        else
+        {
+
+            yClamp = 30;
+            xClamp = 80;
+            defaultPosition = new Vector3(-1.0f, 1.0f, 0.0f);
+        }
+
+        transform.localPosition = Vector3.Lerp(transform.localPosition, defaultPosition, Time.deltaTime * crouchingSpeed);
+
     }
 }

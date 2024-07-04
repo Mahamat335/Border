@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: c2d8b82133f9dc34fb2398996b8a1888
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - MWRotaterR: {fileID: 6036766782835418790, guid: 8d4cb8691c342224fa7bd771d6ee7910, type: 3}
+  - glass_backR: {instanceID: 0}
+  - MWRotaterL: {instanceID: 0}
+  - glass_backL: {instanceID: 0}
+  - mainCamera: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
