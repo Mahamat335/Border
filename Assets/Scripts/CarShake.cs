@@ -10,10 +10,6 @@ public class CarShake : MonoBehaviour {
     public float shakeFrequency = 3f;
     private Vector3 initialPosition;
 
-    void Start() {
-
-    }
-
     void FixedUpdate() {
         if (isDriving) {
             Shake();
