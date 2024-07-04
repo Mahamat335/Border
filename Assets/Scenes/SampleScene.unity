@@ -180,6 +180,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7154883221484028121, guid: db76d6efa27edb344a3e5afc36f57a5e, type: 3}
+      propertyPath: car
+      value: 
+      objectReference: {fileID: 45802187}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -759,6 +763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d812201699b8fa479e1aabba5cd1b9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDriving: 1
   shakeIntensity: 0.1
   shakeFrequency: 5
 --- !u!114 &1057264257
