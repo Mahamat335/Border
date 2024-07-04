@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CarShake : MonoBehaviour {
+public class CarShake : MonoBehaviour
+{
 
     public bool isDriving = true;
 
@@ -10,12 +11,15 @@ public class CarShake : MonoBehaviour {
     public float shakeFrequency = 3f;
     private Vector3 initialPosition;
 
-    void FixedUpdate() {
-        if (isDriving) {
+    void FixedUpdate()
+    {
+        if (isDriving)
+        {
             Shake();
         }
     }
-    private void Shake() {
+    private void Shake()
+    {
 
         float shakeAmountX = Mathf.PerlinNoise(0f, Time.time * shakeFrequency) * 2f - 1f;
         float shakeAmountY = Mathf.PerlinNoise(10f, Time.time * shakeFrequency) * 2f - 1f;
