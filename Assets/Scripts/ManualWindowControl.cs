@@ -37,12 +37,12 @@ public class ManualWindowControl : MonoBehaviour
             Color currentColorR = MWRotaterR.GetComponentInChildren<Renderer>().material.GetColor("_Color");
             Color currentColorL = MWRotaterL.GetComponentInChildren<Renderer>().material.GetColor("_Color");
 
-            if (camYRot >= 115 && camYRot <= 125) {
+            if (camYRot >= 130 && camYRot <= 140) {
                 highlight(MWRotaterR, Color.white);
                 ControlWindow(MWRotaterR, glass_backR, ref isRotatingR);
 
             }
-            else if (camYRot >= 55 && camYRot <= 65) {
+            else if (camYRot >= 40 && camYRot <= 50) {
                 highlight(MWRotaterL, Color.white);
                 ControlWindow(MWRotaterL, glass_backL, ref isRotatingL);
 

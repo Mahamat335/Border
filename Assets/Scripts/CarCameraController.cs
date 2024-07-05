@@ -5,7 +5,7 @@ public class CarCameraController : MonoBehaviour
     public float mouseSensitivity = 100f;
 
     public float xClamp = 80;
-    public float yClamp = 30;
+    public float yClamp = 50;
 
     private float xRotation = 0f;
     private float yRotation = 0f;
@@ -72,7 +72,7 @@ public class CarCameraController : MonoBehaviour
         else
         {
 
-            yClamp = 30;
+            yClamp = 50;
             xClamp = 80;
             defaultPosition = new Vector3(-1.0f, 1.0f, 0.0f);
         }
