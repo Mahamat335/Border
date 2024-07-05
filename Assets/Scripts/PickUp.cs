@@ -48,11 +48,15 @@ public class PickUpScript : MonoBehaviour
         }
         if (isHolding)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) && heldObj != null)
             {
                 //u gave the key
                 Debug.Log("U gave the key");
                 QuestManager.Instance.Interact(heldObj.tag);
+            }
+            if (Input.GetKeyDown(KeyCode.R) && heldObj != null)
+            {
+                PassportDisplay.Instance.ShowPassport();
             }
         }
     }

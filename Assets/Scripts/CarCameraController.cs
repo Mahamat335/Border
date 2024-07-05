@@ -80,4 +80,9 @@ public class CarCameraController : MonoBehaviour
         transform.localPosition = Vector3.Lerp(transform.localPosition, defaultPosition, Time.deltaTime * crouchingSpeed);
 
     }
+
+    public Vector3 GetDefaultPosition()
+    {
+        return defaultPosition;
+    }
 }

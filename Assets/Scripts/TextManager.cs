@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TextManager : MonoBehaviour
 {
+    public CarShake car;
     private static TextManager _instance;
     public static TextManager Instance
     {
@@ -43,8 +44,8 @@ public class TextManager : MonoBehaviour
         "Yasin: “Psst! Grab the pen in the back seat. Change any faulty information in the passport before he comes back.”",
         "IDF: “Roll down your window.”",
         "IDF: “Let me see your passport as well.”",
-        "If only the expiry date is changed:\nIDF: “Alright, looks good. You guys can go.”",
-        "If anything else is changed:\nIDF: “This passport is a fake. You'll need to step out of the car right now.” YOU LOSE",
+        "IDF: “Alright, looks good. You guys can go.”",
+        "IDF: “This passport is a fake. You'll need to step out of the car right now.” YOU LOSE",
         "Yasin: “We made it. Welcome to the other side."
     };
 
@@ -96,6 +97,7 @@ public class TextManager : MonoBehaviour
             QuestManager.Instance.keyQuestReq = true;
             if (QuestManager.Instance.keyQuest)
             {
+                car.isDriving = true;
                 currentTextIndex++;
                 DisplayCurrentText();
             }
@@ -103,6 +105,12 @@ public class TextManager : MonoBehaviour
             {
                 Debug.Log("keyQuest is not true yet. Cannot proceed to the next text.");
             }
+        }
+        else if (currentTextIndex == 4)
+        {
+            car.isDriving = false;
+            currentTextIndex++;
+            DisplayCurrentText();
         }
         else if (currentTextIndex == 8)
         {
@@ -124,6 +132,16 @@ public class TextManager : MonoBehaviour
                 DisplayCurrentText();
             }
         }
+        else if (currentTextIndex == 13)
+        {
+            // Check if keyQuest is true in QuestManager
+            QuestManager.Instance.windowQuestReq = true;
+            if (QuestManager.Instance.windowQuest)
+            {
+                currentTextIndex++;
+                DisplayCurrentText();
+            }
+        }
         else if (currentTextIndex == 14)
         {
             // Check if keyQuest is true in QuestManager
@@ -138,6 +156,7 @@ public class TextManager : MonoBehaviour
         }
         else if (currentTextIndex == 15)
         {
+            car.isDriving = true;
             currentTextIndex++;
             currentTextIndex++;
             DisplayCurrentText();

@@ -39,7 +39,7 @@ public class PanelScript : MonoBehaviour
         if (button4 != null)
             button4.onClick.AddListener(() => SetValue(3));
         else
-            Debug.LogError("Button 3 is not assigned.");
+            Debug.LogError("Button 4 is not assigned.");
 
         if (confirmButton != null)
             confirmButton.onClick.AddListener(HidePanel);

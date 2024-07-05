@@ -5,11 +5,16 @@ using UnityEngine;
 public class CarShake : MonoBehaviour
 {
 
-    public bool isDriving = true;
+    public bool isDriving = false;
 
     public float shakeIntensity = 0.05f;
     public float shakeFrequency = 3f;
     private Vector3 initialPosition;
+
+    void Start()
+    {
+        initialPosition = transform.position;
+    }
 
     void FixedUpdate()
     {

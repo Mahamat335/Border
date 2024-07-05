@@ -6,6 +6,8 @@ public class QuestManager : MonoBehaviour
     private static QuestManager _instance;
     public bool keyQuestReq = false;
     public bool keyQuest = false;
+    public bool windowQuestReq = false;
+    public bool windowQuest = false;
     public bool cardQuestReq = false;
     public bool cardQuest = false;
     public bool libroQuestReq = false;
@@ -115,4 +117,5 @@ public class QuestManager : MonoBehaviour
         }
         // Pen interaction logic here
     }
+
 }

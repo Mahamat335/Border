@@ -21,7 +21,7 @@ public class Movement : MonoBehaviour
 
     private void Move(Transform t)
     {
-        if (car.transform.position.x - t.position.x > 60)
+        if (car.transform.position.x - t.position.x > 160)
         {
             t.position += new Vector3(240f, 0f, 0f);
         }

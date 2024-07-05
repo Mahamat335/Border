@@ -32,30 +32,35 @@ public class ManualWindowControl : MonoBehaviour
         float camYRot = mainCamera.transform.eulerAngles.y;
         float camXRot = mainCamera.transform.eulerAngles.x;
 
-        if (camXRot >= 30 && camXRot < 55)
-        {
-            Color currentColorR = MWRotaterR.GetComponentInChildren<Renderer>().material.GetColor("_Color");
-            Color currentColorL = MWRotaterL.GetComponentInChildren<Renderer>().material.GetColor("_Color");
+        if (mainCamera.GetComponent<CarCameraController>().GetDefaultPosition().z != 0.0f)
+            if (camXRot >= 30 && camXRot < 55)
+            {
+                Color currentColorR = MWRotaterR.GetComponentInChildren<Renderer>().material.GetColor("_Color");
+                Color currentColorL = MWRotaterL.GetComponentInChildren<Renderer>().material.GetColor("_Color");
 
-            if (camYRot >= 130 && camYRot <= 140) {
-                highlight(MWRotaterR, Color.white);
-                ControlWindow(MWRotaterR, glass_backR, ref isRotatingR);
+                if (camYRot >= 130 && camYRot <= 140)
+                {
+                    highlight(MWRotaterR, Color.white);
+                    ControlWindow(MWRotaterR, glass_backR, ref isRotatingR);
+
+                }
+                else if (camYRot >= 40 && camYRot <= 50)
+                {
+                    highlight(MWRotaterL, Color.white);
+                    ControlWindow(MWRotaterL, glass_backL, ref isRotatingL);
+
+                }
+                else if (currentColorR.r == 1f && currentColorR.g == 1f && currentColorR.b == 1f)
+                {
+                    highlight(MWRotaterR, handleColor);
+                }
+                else if (currentColorL.r == 1f && currentColorL.g == 1f && currentColorL.b == 1f)
+                {
+                    highlight(MWRotaterL, handleColor);
+                }
+
 
             }
-            else if (camYRot >= 40 && camYRot <= 50) {
-                highlight(MWRotaterL, Color.white);
-                ControlWindow(MWRotaterL, glass_backL, ref isRotatingL);
-
-            }
-            else if (currentColorR.r == 1f && currentColorR.g == 1f && currentColorR.b == 1f) {
-                highlight(MWRotaterR, handleColor);
-            }
-            else if (currentColorL.r == 1f && currentColorL.g == 1f && currentColorL.b == 1f) {
-                highlight(MWRotaterL, handleColor);
-            }
-
-
-        }
 
 
 
@@ -72,6 +77,7 @@ public class ManualWindowControl : MonoBehaviour
                 RotateAndMove(rotater, glass, -rotationSpeed, -movementSpeed, isRotating)
 
             );
+
 
         }
         else if (Input.GetKey(KeyCode.W) && !isRotating && glass.transform.localPosition.y < 1.0f)
@@ -97,11 +103,15 @@ public class ManualWindowControl : MonoBehaviour
 
         while ((Input.GetKey(KeyCode.S) && rotSpeed < 0) || (Input.GetKey(KeyCode.W) && rotSpeed > 0))
         {
-            
+
 
             float newY = glass.transform.localPosition.y + moveSpeed * Time.fixedDeltaTime;
-            if (newY < 0.71f)
+            if (newY <= 0.71f)
+            {
+                if (QuestManager.Instance.windowQuestReq)
+                    QuestManager.Instance.windowQuest = true;
                 break;
+            }
             if (newY > 1)
                 break;
             rotater.transform.localEulerAngles += new Vector3(0, 0, rotSpeed * Time.fixedDeltaTime);
@@ -118,11 +128,13 @@ public class ManualWindowControl : MonoBehaviour
 
     }
 
-    private void highlight(GameObject selection, Color color) {
+    private void highlight(GameObject selection, Color color)
+    {
 
         Renderer[] rs = selection.GetComponentsInChildren<Renderer>();
 
-        foreach (Renderer r in rs) {
+        foreach (Renderer r in rs)
+        {
             r.material.SetColor("_Color", color);
         }
 
