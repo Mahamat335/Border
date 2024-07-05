@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Object
+  - Key
+  - Libro
+  - Pen
+  - Card
   layers:
   - Default
   - TransparentFX

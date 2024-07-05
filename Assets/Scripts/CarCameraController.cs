@@ -57,7 +57,7 @@ public class CarCameraController : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
 
-            yClamp = 18;
+            yClamp = 100;
             xClamp = 55;
             defaultPosition = new Vector3(-1.0f, 1.0f, 0.3f);
 
@@ -65,14 +65,14 @@ public class CarCameraController : MonoBehaviour
         else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
 
-            yClamp = 18;
+            yClamp = 100;
             xClamp = 55;
             defaultPosition = new Vector3(-1.0f, 1.0f, -0.3f);
         }
         else
         {
 
-            yClamp = 50;
+            yClamp = 110;
             xClamp = 80;
             defaultPosition = new Vector3(-1.0f, 1.0f, 0.0f);
         }
